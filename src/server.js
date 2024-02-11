@@ -5,7 +5,8 @@ const app = express();
 const port = 3000;
 
 // localhost:3000/toto
-app.get('/toto', (req, res) => {
+app.post('/toto', (req, res) => {
+    res.status(201);//Created http status code
     res.send('Hello toto!');
 });
 
