@@ -6,3 +6,4 @@ what ive used during the creation of this API:
 -Body parser 
 -Ava , can use also jasmine JS for testing 
 -Nodemon
+-http-status-codes : contains HTTP status codes , based on the Java Apache HttpStatus API
