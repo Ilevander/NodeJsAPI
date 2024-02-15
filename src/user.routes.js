@@ -89,20 +89,28 @@ router.delete('/delete/:id' , (req,res) => {
      const { params } = req;
 
      const id = parseInt(params.id);
-     const status = userService.removeUser(id);
+     const user = userService.getUser(id);
 
-     let response;
-
-            response = {
-                status: status,
-                message: `User ${id} has been deleted`
-            };
+     if(user) 
+            {
+                userService.removeUser(id);
+                return res.status(StatusCodes.OK).send({
+                      status: STATUS.success,
+                      message: `User ${id} has been deleted`,
+                });
+            }
+            else
+               {
+                return res.status(StatusCodes.NOT_FOUND).send({
+                      status: STATUS.failure,
+                      message: `User ${id} hasn't been deleted`,
+                })
+               }
     
-         return res.status(StatusCodes.OK).send(response);
-});
+})
 
 
 
-
+ 
 
 export default router;
