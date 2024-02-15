@@ -2,6 +2,7 @@ import express from 'express';
 
 import appRoutes from './user.routes.js';
 import mainRoutes from './main.routes.js';
+import helmet from 'helmet';
 
 
 const app = express();
@@ -10,6 +11,8 @@ const port = 3000;
 
 
 app.use(express.json());
+app.use(helmet());
+
 
 app.use('/v1' , mainRoutes);
 app.use('/v1/user' , appRoutes);
