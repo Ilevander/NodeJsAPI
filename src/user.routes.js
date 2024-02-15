@@ -3,6 +3,10 @@ import express, { response } from 'express';
 import {StatusCodes} from 'http-status-codes';
 import userService from './services/user.service.js';
 
+import  {expressYupMiddleware}  from 'express-yup-middleware';
+
+import {getUser, addUser, updateUser, removeUser} from './user.schemas.js';
+
 const router = express.Router();
 
 
@@ -50,16 +54,18 @@ router.get('/get/:id',(req,res) => {
 
 // localhost:3000/v1/user/add  
 //POST
-router.post('/add', (req, res) => {
-    const {body:user} = req;
+router.post('/add', expressYupMiddleware({ schemaValidator: addUser, expectedStatusCode: StatusCodes.BAD_REQUEST }), (req, res) => {
+    const { body: user } = req;
 
     const addedUser = userService.addUser(user);
-    
+
     return res.status(StatusCodes.CREATED).send({
-            status: STATUS.success,
-            message: addedUser,
-        });
+        status: STATUS.success,
+        user: addedUser,
+    });
 });
+
+
 
 router.put('/update/:id', (req, res) => {
     const {body:user} = req;
