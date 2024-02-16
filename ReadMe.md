@@ -11,3 +11,5 @@ what ive used during the creation of this API:
 -Express validator middleware : yup
 - Yup
 - Helmet : to secure the API
+- JSDoc : Generate documentation
+- OpenAPI : Swagger 

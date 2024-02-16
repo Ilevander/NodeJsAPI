@@ -1,11 +1,25 @@
 import users from '../data/users.data.js '
 
-
+/**
+ * get one user by id
+ * @param {*} userId 
+ * @returns 
+ */
 const get = (userId) => users.find((user) => user.id === userId);
 
+
+/**
+ * Get all users
+ * @returns All users
+ */
 const getAll = () => users;
 
-
+/**
+ * Update a user
+ * @param {*} userId 
+ * @param {*} newDetails 
+ * @returns 
+ */
 const update = (userId,newDetails) => {
     let existingUser = null;
     let userIndex;
@@ -27,14 +41,22 @@ const update = (userId,newDetails) => {
     return updatedUser;
 };
 
-
+/**
+ * Insert a user
+ * @param {*} details 
+ * @returns 
+ */
 const insert = (details) =>{
     const newUser = {...details, id:users.length+1 };
     users.push(newUser);
 
     return true;
 }
-
+/**
+ * Remove a user from its ID
+ * @param {*} userId 
+ * @returns 
+ */
 const remove = (userId) =>{
    const deleteUser = (user , index) => {
       if(user.id === userId)
