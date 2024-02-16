@@ -3,7 +3,7 @@ import pino from 'pino';
 
 const logger = pino();
 
-import userService from '../services/user.service';
+import userService from '../services/user.service.js';
 
 const STATUS = {
     success: true,

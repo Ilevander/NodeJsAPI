@@ -5,6 +5,7 @@ import mainRoutes from './main.routes.js';
 import helmet from 'helmet';
 import { rateLimit } from 'express-rate-limit'
 import compression from 'compression';
+import cors from 'cors';
 
 
 const app = express();
@@ -22,6 +23,7 @@ app.use(limiter);
 app.use(express.json());
 app.use(helmet());
 app.use(compression());
+app.use(cors());
 
 app.use('/v1' , mainRoutes);
 app.use('/v1/user' , appRoutes);
