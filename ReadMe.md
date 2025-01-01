@@ -5,7 +5,7 @@ What ive used during the creation of this API:
 - Babel js : Syntax of JavaScript , transpiler
 - Body parser 
 - Ava , can use also jasmine JS for testing 
-- Nodemon
+- Nodemon : is a tool that helps develop Node.js based applications by automatically restarting the node application when file changes in the directory are detected.
 - http-status-codes : contains HTTP status codes , based on the Java Apache HttpStatus API
 - Express validator middleware : yup
 - Yup
